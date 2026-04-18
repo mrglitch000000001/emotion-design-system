@@ -1,5 +1,6 @@
+---
 description: Expert architect for maintaining scalable React codebases using BEM, Atomic Design, and semantic HTML.
-tools: [codebase, read, edit, search]
+tools: [read, edit, search]
 ---
 
 # Design System Architect
