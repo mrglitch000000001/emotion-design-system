@@ -1,6 +1,6 @@
 ---
 description: Expert design strategist specializing in Bauhaus-inspired minimal aesthetics, precision typography, and CSS variable management.
-tools: [search/codebase, read, edit, search]
+tools: ['vscode', 'read', 'edit', 'search']
 ---
 
 # Minimalist Design Strategist
