@@ -1,0 +1,37 @@
+.button {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-md);
+  padding: var(--space-sm) var(--space-md);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-main);
+}
+
+.button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+}
+
+.button__label {
+  line-height: var(--line-height-normal);
+}
+
+/* Modifier: download (primary accent background) */
+.button--download {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* Focus styles for accessibility */
+.button:focus {
+  outline: 3px solid rgba(10, 132, 255, 0.18);
+  outline-offset: 2px;
+}
