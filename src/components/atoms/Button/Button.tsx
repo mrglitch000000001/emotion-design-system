@@ -1,15 +1,18 @@
-import React from 'react';
 import './Button.css';
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: 'download';
+  variant?: 'download' | 'primary' | 'secondary' | 'ghost';
 };
 
-const Button: React.FC<ButtonProps> = ({ children, className = '', variant, ...rest }) => {
+const Button = ({ children, className = '', variant, ...rest }: ButtonProps) => {
   const modifier = variant ? ` button--${variant}` : '';
+  const isDownload = variant === 'download';
+
   return (
     <button className={`button${modifier} ${className}`.trim()} {...rest}>
-      <span className="button__icon" aria-hidden="true">⬇︎</span>
+      {isDownload && (
+        <span className="button__icon" aria-hidden="true">⬇︎</span>
+      )}
       <span className="button__label">{children}</span>
     </button>
   );

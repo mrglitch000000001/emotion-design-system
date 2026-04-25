@@ -8,8 +8,8 @@
 :root {
   /* Color tokens (strictly 3 colors) */
   --color-neutral: #FFFFFF; /* background */
-  --color-primary: #0F172A; /* primary text / UI */
-  --color-accent: #0A84FF;  /* interactive / accents */
+  --color-primary: #0B0B0B; /* primary text / UI (deep black for Bauhaus clarity) */
+  --color-accent: #D7263D;  /* accent (Bauhaus crimson red) */
 
   /* Semantic aliases */
   --bg: var(--color-neutral);
@@ -18,7 +18,7 @@
 
   /* Typography (base = 16px) */
   --base-font-size: 16px;
-  --font-family-sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-sans: Futura, "Century Gothic", Arial, Helvetica, sans-serif;
   --font-size-xs: 0.75rem; /* 12px */
   --font-size-sm: 0.875rem; /* 14px */
   --font-size-md: 1rem; /* 16px */
