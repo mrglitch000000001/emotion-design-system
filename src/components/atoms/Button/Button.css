@@ -10,6 +10,11 @@
   cursor: pointer;
   background: transparent;
   color: var(--text-main);
+  position: relative;
+  transition: transform 200ms cubic-bezier(.2,.9,.3,1),
+              box-shadow 200ms cubic-bezier(.2,.9,.3,1),
+              background-color 180ms ease,
+              color 180ms ease;
 }
 
 .button__icon {
@@ -30,8 +35,89 @@
   color: var(--bg);
 }
 
-/* Focus styles for accessibility */
+/* Primary: uses accent background (same visual weight as download) */
+.button--primary {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* Secondary: outline button with accent-colored text */
+.button--secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+/* Ghost: text-only button (no border) */
+.button--ghost {
+  background: transparent;
+  color: var(--accent);
+  padding: calc(var(--space-xs) + 2px) var(--space-sm);
+}
+
+/* Elevation + hover/active interactions */
+.button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--accent) 24%, transparent);
+}
+
+.button:active {
+  transform: translateY(0) scale(0.995);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+/* Variant-specific hover treatments */
+.button--download:hover,
+.button--primary:hover {
+  /* subtle glossy sheen via pseudo-element */
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.06), transparent 40%);
+}
+
+.button--secondary:hover {
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.button--ghost:hover {
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  transform: translateY(-2px);
+}
+
+/* Focus styles for accessibility (use focus-visible) */
+.button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+/* Decorative sheen using pseudo-element for 'swag' */
+.button::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 40%;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0));
+  border-radius: 8px 8px 0 0;
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.button:hover::after {
+  opacity: 1;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .button, .button::after {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Focus fallback for older browsers */
 .button:focus {
-  outline: 3px solid rgba(10, 132, 255, 0.18);
+  outline: 3px solid color-mix(in srgb, var(--accent) 18%, transparent);
   outline-offset: 2px;
 }

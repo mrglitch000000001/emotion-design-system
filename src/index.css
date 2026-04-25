@@ -1,26 +1,27 @@
 @import './styles/theme.css';
 
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  /* Use central theme tokens from src/styles/theme.css (Bauhaus tri-color) */
+  --heading: var(--font-family-sans);
   --mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/145% var(--sans);
+  /* semantic color aliases derived from the theme tokens */
+  --text: color-mix(in srgb, var(--text-main) 86%, transparent);
+  --text-h: var(--text-main);
+  --bg: var(--bg);
+  --border: color-mix(in srgb, var(--text-main) 8%, transparent);
+  --code-bg: color-mix(in srgb, var(--text-main) 6%, #f7f7f7);
+  --accent: var(--accent);
+  --accent-bg: color-mix(in srgb, var(--accent) 10%, var(--bg));
+  --accent-border: color-mix(in srgb, var(--accent) 30%, transparent);
+  --social-bg: color-mix(in srgb, var(--accent) 6%, var(--bg));
+  --shadow: 0 10px 15px rgba(0,0,0,0.06), 0 4px 6px rgba(0,0,0,0.02);
+
+  /* global text / layout */
+  font: var(--base-font-size)/var(--line-height-normal) var(--font-family-sans);
   letter-spacing: 0.18px;
   color-scheme: light dark;
-  color: var(--text);
+  color: var(--text-main);
   background: var(--bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -34,17 +35,16 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+    /* Dark-mode mapping while preserving Bauhaus contrast */
+    --bg: #0B0B0B; /* deep black */
+    --text-main: #FFFFFF; /* white text */
+    --accent: #D7263D; /* keep accent vivid */
+    --border: color-mix(in srgb, var(--text-main) 8%, transparent);
+    --code-bg: color-mix(in srgb, var(--text-main) 6%, #111);
+    --accent-bg: color-mix(in srgb, var(--accent) 12%, var(--bg));
+    --accent-border: color-mix(in srgb, var(--accent) 30%, transparent);
+    --social-bg: color-mix(in srgb, var(--accent) 6%, var(--bg));
+    --shadow: 0 10px 15px rgba(0,0,0,0.6), 0 4px 6px rgba(0,0,0,0.4);
   }
 
   #social .button-icon {
