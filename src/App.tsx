@@ -1,6 +1,6 @@
 
 import './App.css'
-import { Button, Card, SearchBar, Carousel, ActionRadios } from './components'
+import { Button, Card, SearchBar, Carousel, ActionRadios, BrightnessSlider } from './components'
 import { useEffect, useState } from 'react'
 
 function App() {
@@ -32,6 +32,7 @@ function App() {
           <h1>Emotion Design System</h1>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-sm)', alignItems: 'center' }}>
             <SearchBar onSearch={(q) => console.log('Search:', q)} />
+            <BrightnessSlider />
             <div style={{ display: 'flex', gap: 'var(--gap-sm)', alignItems: 'center', marginTop: 'var(--gap-xxs)' }}>
               <Button variant="download" aria-label="Download file">Download</Button>
               <Button variant="secondary" aria-label="Save as PDF">Save as PDF</Button>

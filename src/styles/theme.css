@@ -7,8 +7,8 @@
 */
 :root {
   /* Color tokens (strictly 3 colors) */
-  --color-neutral: #FFFFFF; /* background */
-  --color-primary: #0B0B0B; /* primary text / UI (deep black for Bauhaus clarity) */
+  --color-neutral: #0B0B0B; /* background (dark theme) */
+  --color-primary: #FFFFFF; /* primary text / UI (light text for dark theme) */
   --color-accent: #D7263D;  /* accent (Bauhaus crimson red) */
 
   /* Semantic aliases */
@@ -43,6 +43,8 @@
   --gap-md: var(--space-md);
   --gap-lg: var(--space-lg);
   --gap-xl: var(--space-xl);
+  /* Brightness token: 1 = normal. Controlled by BrightnessSlider. */
+  --app-brightness: 1;
 }
 
 /* Base resets and usage examples */
@@ -54,6 +56,7 @@ body {
   background: var(--bg);
   color: var(--text-main);
   line-height: var(--line-height-normal);
+  filter: brightness(var(--app-brightness));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
