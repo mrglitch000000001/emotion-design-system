@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './BrightnessSlider.css'
 
 const STORAGE_KEY = 'app:brightness'
