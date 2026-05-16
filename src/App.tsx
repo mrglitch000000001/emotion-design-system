@@ -8,7 +8,7 @@ import Releases from './pages/Releases'
 
 function App() {
   return (
-    <Router>
+    <Router basename="/emotion-design-system/">
       <nav style={{ padding: 'var(--gap-md)', borderBottom: '1px solid var(--border)' }}>
         <div style={{ display: 'flex', gap: 'var(--gap-md)', maxWidth: '1200px', margin: '0 auto' }}>
           <Link to="/" style={{ textDecoration: 'none', color: 'var(--text-h)', fontWeight: 'bold' }}>
