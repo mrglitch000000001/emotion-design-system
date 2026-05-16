@@ -25,25 +25,35 @@ export default function Home() {
 
   return (
     <main>
-      <div id="center">
-        <h1>Emotion Design System</h1>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-sm)', alignItems: 'center' }}>
-          <SearchBar onSearch={(q) => console.log('Search:', q)} />
+      <div id="center" style={{ minHeight: '100vh', padding: 'var(--gap-xl)', gap: 'var(--gap-xl)' }}>
+        <h1 style={{ fontSize: '3.5rem', marginTop: 'var(--gap-xl)', marginBottom: 0, fontWeight: '700', letterSpacing: '-0.02em' }}>
+          Emotion Design System
+        </h1>
+        <p style={{ fontSize: '1.25rem', color: 'rgba(255,255,255,0.7)', marginTop: 'var(--gap-lg)', marginBottom: 0, maxWidth: '700px', lineHeight: '1.6' }}>
+          A modern design system built with React and TypeScript, featuring minimal Bauhaus-inspired components.
+        </p>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--gap-lg)', alignItems: 'center', marginTop: 'var(--gap-xl)' }}>
+          <div style={{ width: '100%', maxWidth: '500px' }}>
+            <SearchBar onSearch={(q) => console.log('Search:', q)} />
+          </div>
           <BrightnessSlider />
-          <div style={{ display: 'flex', gap: 'var(--gap-sm)', alignItems: 'center', marginTop: 'var(--gap-xxs)' }}>
+          <div style={{ display: 'flex', gap: 'var(--gap-md)', alignItems: 'center', marginTop: 'var(--gap-md)', flexWrap: 'wrap', justifyContent: 'center' }}>
             <Button variant="download" aria-label="Download file">Download</Button>
             <Button variant="secondary" aria-label="Save as PDF">Save as PDF</Button>
             <Button variant="ghost" aria-label="More options">More</Button>
           </div>
         </div>
 
-        <div style={{ marginTop: 'var(--gap-lg)' }}>
+        <div style={{ marginTop: 'var(--gap-2xl)', width: '100%' }}>
           <ActionRadios />
-          <Carousel>
-            {cards.map((c, i) => (
-              <Card key={i} title={c.title} description={c.description} cta={c.cta} />
-            ))}
-          </Carousel>
+          <div style={{ marginTop: 'var(--gap-xl)' }}>
+            <Carousel>
+              {cards.map((c, i) => (
+                <Card key={i} title={c.title} description={c.description} cta={c.cta} />
+              ))}
+            </Carousel>
+          </div>
         </div>
       </div>
     </main>

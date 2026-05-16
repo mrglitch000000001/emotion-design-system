@@ -11,6 +11,7 @@ export default function Releases() {
         'Added React Router for multi-page navigation',
         'Created Home, About, Documentation, and Releases pages',
         'Improved navigation with header links',
+        'Enhanced layouts with improved typography and spacing',
       ]
     },
     {
@@ -38,10 +39,12 @@ export default function Releases() {
   ]
 
   return (
-    <main style={{ padding: 'var(--gap-lg)' }}>
-      <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-        <h1>Releases</h1>
-        <p style={{ color: 'var(--text-secondary)', marginBottom: 'var(--gap-lg)' }}>
+    <main style={{ padding: '0' }}>
+      <div style={{ maxWidth: '900px', margin: '0 auto', padding: 'var(--gap-xl)' }}>
+        <h1 style={{ fontSize: '3rem', marginTop: 'var(--gap-xl)', marginBottom: 'var(--gap-md)', fontWeight: '700', letterSpacing: '-0.02em' }}>
+          Releases
+        </h1>
+        <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 'var(--gap-2xl)', fontSize: '1.25rem' }}>
           Version history and changelog for the Emotion Design System
         </p>
 
@@ -50,21 +53,22 @@ export default function Releases() {
             <div
               key={index}
               style={{
-                padding: 'var(--gap-md)',
-                borderLeft: '3px solid var(--accent)',
-                backgroundColor: 'var(--bg-secondary)',
-                borderRadius: '4px',
-                marginBottom: 'var(--gap-md)',
+                padding: 'var(--gap-lg)',
+                borderLeft: '4px solid var(--accent)',
+                backgroundColor: 'rgba(0,0,0,0.2)',
+                borderRadius: '8px',
+                marginBottom: 'var(--gap-lg)',
+                transition: 'transform 0.2s, box-shadow 0.2s',
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 'var(--gap-sm)' }}>
-                <h3 style={{ margin: 0 }}>v{release.version}</h3>
-                <span style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>{release.date}</span>
+                <h3 style={{ margin: 0, fontSize: '1.75rem', fontWeight: '700' }}>v{release.version}</h3>
+                <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.125rem' }}>{release.date}</span>
               </div>
-              <h4 style={{ margin: 'var(--gap-xs) 0', color: 'var(--accent)' }}>{release.title}</h4>
-              <ul style={{ margin: 'var(--gap-sm) 0', paddingLeft: '20px' }}>
+              <h4 style={{ margin: 'var(--gap-md) 0', color: 'var(--accent)', fontSize: '1.375rem', fontWeight: '600' }}>{release.title}</h4>
+              <ul style={{ margin: 'var(--gap-md) 0', paddingLeft: '2rem' }}>
                 {release.changes.map((change, idx) => (
-                  <li key={idx} style={{ marginBottom: 'var(--gap-xs)' }}>
+                  <li key={idx} style={{ marginBottom: 'var(--gap-md)', fontSize: '1.125rem', lineHeight: '1.6', color: 'rgba(255,255,255,0.8)' }}>
                     {change}
                   </li>
                 ))}
@@ -73,8 +77,8 @@ export default function Releases() {
           ))}
         </div>
 
-        <div style={{ marginTop: 'var(--gap-lg)', paddingTop: 'var(--gap-lg)', borderTop: '1px solid var(--border)' }}>
-          <Link to="/documentation" style={{ textDecoration: 'none', marginRight: 'var(--gap-md)' }}>
+        <div style={{ marginTop: 'var(--gap-2xl)', paddingTop: 'var(--gap-2xl)', borderTop: '1px solid rgba(255,255,255,0.1)', display: 'flex', gap: 'var(--gap-md)', justifyContent: 'center' }}>
+          <Link to="/documentation" style={{ textDecoration: 'none' }}>
             <Button variant="secondary">← Documentation</Button>
           </Link>
           <Link to="/" style={{ textDecoration: 'none' }}>
